@@ -54,7 +54,7 @@ function App() {
         </section>
 
         {/* ABOUT SECTION */}
-        <section id="about" className="px-8 py-32">
+        <section id="about" className="px-8 py-32 bg-fuchsia-150">
           <h2 className="text-4xl font-bold text-center mb-16">
             About Me
           </h2>
@@ -70,7 +70,7 @@ function App() {
         </section>
 
         {/* PROJECTS SECTION */}
-        <section id="projects" className="px-8 py-32 bg-white">
+        <section id="projects" className="px-8 py-32 bg-sky-50">
           <h2 className="text-4xl font-bold text-center mb-16">
             Featured Projects
           </h2>
@@ -79,7 +79,7 @@ function App() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {/* CARD 1: Container Main Grid*/}
-            <div className="bg-fuchsia-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold">
                 MindCare App
               </h3>
@@ -89,14 +89,14 @@ function App() {
 
               {/* Badges Container 1 */}
               <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">HTML5</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">CSS3</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">JavaScript</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">HTML5</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">CSS3</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">JavaScript</span>
               </div>
             </div>
 
             {/* CARD 2: Container Main Grid*/}
-            <div className="bg-fuchsia-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold">
                 Focusly
               </h3>
@@ -105,15 +105,15 @@ function App() {
               </p>
               {/* Badges Container 2 */}
               <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">HTML5</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">CSS3</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">JavaScript</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">LocalStorage</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">HTML5</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">CSS3</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">JavaScript</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">LocalStorage</span>
               </div>
             </div>
 
             {/* CARD 3: Container Main Grid*/}
-            <div className="bg-fuchsia-50 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold">
                 Sudoku Validator
               </h3>
@@ -122,13 +122,70 @@ function App() {
               </p>
               {/* Badges Container 3 */}
               <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">C++</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">File I/O</span>
-                <span className="px-3 py-1 text-sm text-fuchsia-700 bg-fuchsia-100 rounded-full">Arrays</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">C++</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">File I/O</span>
+                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">Arrays</span>
               </div>
-              
+
+            </div>
+          </div>
+        </section>
+
+        {/* SKILLS SECTION */}
+        <section id="skills" className="px-8 py-32 bg-emerald-50">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Skills & Technologies
+          </h2>
+
+          {/* Skill Cards */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {/* PART 1: Container Main Grid*/}
+            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-semibold mb-4">
+                Programming Languages
+              </h3>
+
+              {/* Badges Container 1 */}
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">JavaScript</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">C++</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">TypeScript (Beginner)</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Python (Beginner)</span>
+              </div>
             </div>
 
+            {/* PART 2: Container Main Grid*/}
+            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-semibold mb-4">
+                Web Technologies
+              </h3>
+              
+              {/* Badges Container 2 */}
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">HTML5</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">CSS3</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Tailwind CSS</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">React</span>
+              </div>
+            </div>
+
+            {/* PART 3: Container Main Grid*/}
+            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-semibold mb-4">
+                Tools & Others
+              </h3>
+              
+              {/* Badges Container 3 */}
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">VS Code</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Git/Github</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Terminal</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">API/Fetch</span>
+                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">JSON</span>              
+              </div>
+
+            </div>
           </div>
         </section>
 
