@@ -53,6 +53,22 @@ function App() {
 
         </section>
 
+        {/* ABOUT SECTION */}
+        <section id="about" className="px-8 py-32">
+          <h2 className="text-4xl font-bold tex-center mb-16">
+            About Me
+          </h2>
+
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-stone-600 leading-relaxed mb-6">
+              Hello! I'm Ezgi, a passionate software development student. I enjoy bridging the gap between engineering and design — combining my technical knowledge with my keen eye for aesthetics to create beautiful, functional products.
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              My goal is to build applications that are scalable and efficient under the hood while providing engaging, pixel-perfect user experiences. When I'm not coding, I love exploring new design trends and continuously learning new technologies.
+            </p>
+          </div>
+        </section>
+
     </div>
   )
 }
