@@ -9,15 +9,25 @@ function App() {
 
           {/* Logo Area */}
           <div className="text-fuchsia-600 text-2xl font-bold">
-            Ezgi.
+            <a href="#">Ezgi.</a>
           </div>
 
           {/* Navigation Links */}
           <ul className="flex gap-8 text-stone-600 font-medium">
-            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">About</li>
-            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">Projects</li>
-            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">Skills</li>
-            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">Contact</li>
+
+            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">
+              <a href="#about">About</a>
+            </li>
+            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">
+              <a href="#projects">Projects</a> 
+            </li>
+            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">
+              <a href="#skills">Skills</a> 
+            </li>
+            <li className="hover:text-fuchsia-500 transition-colors cursor-pointer">
+              <a href="#contact">Contact</a> 
+            </li>
+
           </ul>
 
         </nav>
@@ -187,6 +197,90 @@ function App() {
 
             </div>
           </div>
+        </section>
+
+        {/* CONTACT SECTION */}
+        <section id="contact" className="px-8 py-32 bg-amber-50 flex flex-col items-center">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            Get In Touch
+          </h2>
+
+          {/* STEP 1: Icons & Quick Links */}
+          <div className="flex justify-center gap-4 mb-12 w-full max-w-sm md:max-w-md">
+
+            {/* Github Button */}
+            <a 
+              href="#" 
+              className="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-sm border border-stone-100 text-amber-700 hover:text-fuchsia-600 font-medium transition-colors"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+              </svg>
+              <span>Github</span>
+            </a>
+            
+            {/* LinkedIn Button */}
+            <a 
+              href="#" 
+              className="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-sm border border-stone-100 text-amber-700 hover:text-fuchsia-600 font-medium transition-colors"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            
+            {/* Email Button */}
+            <a 
+              href="#" 
+              className="flex items-center gap-2 bg-white px-5 py-3 rounded-xl shadow-sm border border-stone-100 text-amber-700 hover:text-fuchsia-600 font-medium transition-colors"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <span>Email</span>
+            </a>
+          </div>
+
+          {/* STEP 2: Interaction Form */}
+          <h3 className="flex justify-center font-medium text-amber-500 mx-3 mb-5">
+            Contact Me Directly If You Wish
+          </h3>
+
+          <form className="flex flex-col gap-4 mb-16 w-full max-w-sm md:max-w-md">
+            <input 
+              type="text"
+              placeholder="Your Name ..."
+              className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white" 
+            />
+            <input 
+              type="email" 
+              placeholder="Your Email ..." 
+              className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white" 
+            />
+            <textarea 
+              placeholder="Your Message" 
+              rows="4" 
+              className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white"
+            ></textarea>
+  
+            <button type="submit" className="bg-amber-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-fuchsia-700 transition-colors">
+              Send Message
+            </button>
+          </form>
+
+            {/* STEP 3 : Comprehensive Contact Card */}
+          <div className="w-full max-w-sm md:max-w-md bg-white p-8 rounded-2xl shadow-sm border border-stone-100 text-center">
+            <h3 className="text-xl font-semibold mb-3 text-amber-800">
+              Current Status 🎯
+            </h3>
+            <p className="text-stone-600 leading-relaxed">
+              I am currently looking for software development internship opportunities and open-source collaborations. If you have a project or just want to say hi, feel free to reach out!
+            </p>
+          </div>
+
+          
+
         </section>
 
     </div>
