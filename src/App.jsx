@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { projectInfo, skillInfo } from "./data";
 
 function App() {
 
@@ -113,56 +114,26 @@ function App() {
           {/* Project Cards */}
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            {/* CARD 1: Container Main Grid*/}
-            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold">
-                MindCare App
-              </h3>
-              <p className="mt-4 text-stone-600">
-                A simple mental health check-in web app that helps users reflect on their mood and needs, and provides supportive responses.
-              </p>
+            {projectInfo.map((project, index) => (
+              <div key={index} className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              {/* Container Main Grid */}
+              
+                <h3 className="text-xl font-semibold">{project.title}</h3>
+                <p className="mt-4 text-stone-600">{project.description}</p>
 
-              {/* Badges Container 1 */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">HTML5</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">CSS3</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">JavaScript</span>
+                {/* Badges Container */}
+                <div className="flex flex-wrap gap-2 mt-6">
+
+                {project.technologies.map((tech, techIndex) => (
+                  <span key={techIndex} className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">
+                    {tech}
+                  </span>
+                ))}
+
               </div>
             </div>
+            ))}
 
-            {/* CARD 2: Container Main Grid*/}
-            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold">
-                Focusly
-              </h3>
-              <p className="mt-4 text-stone-600">
-                A modern productivity dashboard. Focusly is a responsive Pomodoro and task management application designed to help users stay focused and organized.
-              </p>
-              {/* Badges Container 2 */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">HTML5</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">CSS3</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">JavaScript</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">LocalStorage</span>
-              </div>
-            </div>
-
-            {/* CARD 3: Container Main Grid*/}
-            <div className="bg-sky-200 p-8 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold">
-                Sudoku Validator
-              </h3>
-              <p className="mt-4 text-stone-600">
-                A C++ program that validates Sudoku solutions using file handling and multidimensional arrays.
-              </p>
-              {/* Badges Container 3 */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">C++</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">File I/O</span>
-                <span className="px-3 py-1 text-sm text-sky-700 bg-sky-100 rounded-full">Arrays</span>
-              </div>
-
-            </div>
           </div>
         </section>
 
@@ -172,55 +143,32 @@ function App() {
             Skills & Technologies
           </h2>
 
-          {/* Skill Cards */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {/* PART 1: Container Main Grid*/}
-            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">
-                Programming Languages
-              </h3>
-
-              {/* Badges Container 1 */}
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">JavaScript</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">C++</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">TypeScript (Beginner)</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Python (Beginner)</span>
-              </div>
-            </div>
-
-            {/* PART 2: Container Main Grid*/}
-            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">
-                Web Technologies
-              </h3>
+          {/* Main Skills Container */}
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-col-3 gap-8 p-8 bg-emerald-200 rounded-2xl border border-stone-100 shadow-sm">
+            
+            {/* Cycles of Categories */}
+            {["Frontend", "Backend", "Tools", "Other"].map((cat, catIndex) => ( 
+              <div key={catIndex} className="flex flex-col md:flex-row border-b border-stone-100 pb-6 last:border-0 last:pb-0">
               
-              {/* Badges Container 2 */}
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">HTML5</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">CSS3</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Tailwind CSS</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">React</span>
-              </div>
-            </div>
+                {/* Left Side: Category Titles */}
+                <div className="md:w-1/4 font-semibold text-lg text-emerald-800 mb-3 md:mb-0">
+                  {cat}
+                </div>
 
-            {/* PART 3: Container Main Grid*/}
-            <div className="bg-emerald-200 p-6 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold mb-4">
-                Tools & Others
-              </h3>
-              
-              {/* Badges Container 3 */}
-              <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">VS Code</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Git/Github</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">Terminal</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">API/Fetch</span>
-                <span className="px-3 py-1 text-sm text-emerald-700 bg-emerald-100 rounded-full">JSON</span>              
-              </div>
+                {/* Right Side: Floating Badges */}
+                <div className="md:w-3/4 flex flex-wrap gap-2">
+                  {skillInfo
+                    .filter((skill) => skill.category === cat)
+                    .map((skill, skillIndex) => ( 
+                      <span key={skillIndex} className="px-3 py-1.5 text-sm text-emerald-700 bg-emerald-50 rounded-xl font-medium border border-emerald-100">
+                        {skill.name}
+                      </span>
+                    ))}
+                </div>
 
-            </div>
+              </div>
+            ))}
+
           </div>
         </section>
 
