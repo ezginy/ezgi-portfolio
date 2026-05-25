@@ -10,22 +10,28 @@ function App() {
     - resets input fields */
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Captures all form data at once
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    const response = await fetch('https://formspree.io/f/mpqnjkrq', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 
-    // Prints the form values to the browser console
-    console.log(data);
-
-    setIsSubmitted(true);
-    e.target.reset();
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+    if (response.ok) {
+      setIsSubmitted(true);
+      e.target.reset();
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } else {
+    alert("Oops! An error occurred, the message could not be sent.");
+    }
   };
 
   return (
