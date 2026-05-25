@@ -184,6 +184,31 @@ function App() {
           </div>
         </section>
 
+        {/* RADAR & CURRENTLY LEARNING SECTION */}
+        <section id="radar" className="px-8 py-16 bg-transparent">
+          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 shadow-xl flex flex-col md:flex-row items-center gap-8">
+            
+            {/* Left Part: Big Badge/Icon */}
+            <div className="flex-shrink-0 bg-[#FFBB94]/10 p-5 rounded-2xl border border-[#FFBB94]/20 animate-pulse">
+              <Sparkles className="w-12 h-12 text-[#FFBB94]" />
+            </div>
+
+            {/* Right Part: Content */}
+            <div className="flex-grow text-center md:text-left">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FFBB94] bg-[#4C1D3D] px-3 py-1 rounded-full border border-white/10">
+                On My Radar 🎯
+              </span>
+              <h3 className="text-2xl font-bold text-white mt-4 mb-2">
+                What Am I Working On Currently?
+              </h3>
+              <p className="text-white/75 font-medium leading-relaxed text-sm md:text-base">
+                I am currently diving deep into <strong>TypeScript</strong> to elevate my frontend skills. At the same time, I am building practices on React performance optimization and clean code architectures. My goal is to always back the colorful interfaces I design with solid, type-safe development logic!
+              </p>
+            </div>
+
+          </div>
+        </section>
+
         {/* CONTACT SECTION */}
         <section id="contact" className="px-8 py-32 bg-transparent flex flex-col items-center">
           <h2 className="text-4xl font-bold text-center mb-16 text-white">
@@ -193,9 +218,11 @@ function App() {
           {/* STEP 1: Icons & Quick Links */}
           <div className="flex justify-center gap-4 mb-12 w-full max-w-sm md:max-w-md">
 
-            {/* Github Button */}
+            {/* Github Link */}
             <a 
-              href="#" 
+              href="https://github.com/ezginy"
+              target="_blank"
+              rel="noopener noreferrer" 
               className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-3 rounded-xl shadow-sm border border-white/10 text-[#FFBB94] hover:text-white font-semibold transition-all duration-200 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -204,9 +231,11 @@ function App() {
               <span>Github</span>
             </a>
             
-            {/* LinkedIn Button */}
+            {/* LinkedIn Link */}
             <a 
-              href="#" 
+              href="https://linkedin.com/in/ezginyi" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-3 rounded-xl shadow-sm border border-white/10 text-[#FFBB94] hover:text-white font-semibold transition-all duration-200 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -215,9 +244,9 @@ function App() {
               <span>LinkedIn</span>
             </a>
             
-            {/* Email Button */}
+            {/* Email Link */}
             <a 
-              href="#" 
+              href="mailto:ezginyi@outlook.com" 
               className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-5 py-3 rounded-xl shadow-sm border border-white/10 text-[#FFBB94] hover:text-white font-semibold transition-all duration-200 hover:-translate-y-0.5"
             >
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
