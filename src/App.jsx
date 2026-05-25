@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
+
+  /* Contact Form Feedback Loop: 
+    - manages submission state 
+    - triggers temporary user notifications 
+    - resets input fields */
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Captures all form data at once
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    // Prints the form values to the browser console
+    console.log(data);
+
+    setIsSubmitted(true);
+    e.target.reset();
+
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
+  };
+
   return (
     <div className="min-h-screen bg-stone-50 text-slate-800">
 
@@ -247,19 +272,32 @@ function App() {
             Contact Me Directly If You Wish
           </h3>
 
-          <form className="flex flex-col gap-4 mb-16 w-full max-w-sm md:max-w-md">
+          {isSubmitted && (
+            <div className="w-full max-w-sm md:max-w-md bg-emerald-100 text-emerald-800 p-4 rounded-xl mb-4 text-center font-medium">
+              ✅ Your message has been sent successfully!
+            </div>
+          )}
+          <form
+            onSubmit={handleSubmit} 
+            className="flex flex-col gap-4 mb-16 w-full max-w-sm md:max-w-md">
             <input 
-              type="text"
+              type="text" 
+              name="name"
+              required
               placeholder="Your Name ..."
               className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white" 
             />
             <input 
               type="email" 
+              name="email"
+              required
               placeholder="Your Email ..." 
               className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white" 
             />
             <textarea 
-              placeholder="Your Message" 
+              name="message"
+              required
+              placeholder="Your Message ..." 
               rows="4" 
               className="w-full p-3 rounded-xl border border-stone-200 focus:outline-none focus:border-amber-600 bg-white"
             ></textarea>
