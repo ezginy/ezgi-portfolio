@@ -6,3 +6,33 @@
   --themeDeep: #852E4E;
   --themeDark: #4C1D3D;
 }
+
+.stars-layer {
+  position: fixed;
+  inset: 0;
+  animation: drift 60s linear infinite;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-40px);
+  }
+}

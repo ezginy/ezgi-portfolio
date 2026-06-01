@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { projectInfo, skillInfo } from "./data";
 import { FolderGit2, Cpu, Send, Sparkles } from 'lucide-react';
 import { Typewriter } from "react-simple-typewriter";
+import profilePicture from './assets/main-image-ezgi.jpeg';
 
 function App() {
 
-  /* Floating Glow System */
+  // Floating Glow System 
   const [mousePosition, setMousePosition] = useState({
     x: 0, 
     y: 0
@@ -18,6 +19,32 @@ function App() {
       y: e.clientY
     });
   };
+
+  // Datas of Stars
+  const stars = useMemo(() => {
+    return [...Array(100)].map(() => ({
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      opacity: Math.random(),
+      width: `${Math.random() * 3 + 1}px`,
+      height: `${Math.random() * 3 + 1}px`,
+      animationDuration: `${Math.random() * 5 + 2}s`
+    }));
+  }, []);
+
+  // Scroll Tracking
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    }
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   /* Contact Form Feedback Loop: 
     - manages submission state 
@@ -62,17 +89,18 @@ function App() {
             top: mousePosition.y - 75
           }}
         />
+
         {/* Dynamic Star Background */}
-        {[...Array(50)].map((_, i) => (
+        {stars.map((star, i) => (
           <div 
             key={i}
             className="pointer-events-none absolute bg-white rounded-full"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random(),
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
+              top: star.top,
+              left: star.left,
+              width: star.width,
+              height: star.height,
+              animation: `twinkle ${star.animationDuration} infinite`
             }}
           ></div>
         ))}
@@ -163,7 +191,7 @@ function App() {
               {/* My Picture */}
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl z-10 backdrop-blur-sm bg-white/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" 
+                  src={profilePicture}
                   alt="Ezgi" 
                   className="w-full h-full object-cover"
                 />
@@ -201,17 +229,17 @@ function App() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {projectInfo.map((project, index) => (
-              <div key={index} className="bg-white text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+              <div key={index} className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
               {/* Container Main Grid */}
               
-                <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="mt-4 text-stone-600 font-medium text-sm md:text-base">{project.description}</p>
+                <h3 className="text-[var(--themePink)] text-xl font-bold">{project.title}</h3>
+                <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">{project.description}</p>
 
                 {/* Badges Container */}
                 <div className="flex flex-wrap gap-2 mt-6">
 
                 {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/40 rounded-full border border-[var(--themeDark)]/10">
+                  <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/70 rounded-full border border-[var(--themeDark)]/10">
                     {tech}
                   </span>
                 ))}
