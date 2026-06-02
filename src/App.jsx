@@ -3,7 +3,7 @@ import './App.css';
 import { projectInfo, skillInfo } from "./data";
 import { FolderGit2, Cpu, Send, Sparkles } from 'lucide-react';
 import { Typewriter } from "react-simple-typewriter";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import profilePicture from './assets/main-image-ezgi.jpeg';
 
 if ('scrollRestoration' in history) {
@@ -25,8 +25,7 @@ function App() {
     });
   };
 
-  // Progress Bar
-  const { scrollYProgress } = useScroll();
+  
 
   // Datas of Stars
   const stars = useMemo(() => {
@@ -40,12 +39,28 @@ function App() {
     }));
   }, []);
 
-  // Scroll Tracking
-  const [scrollY, setScrollY] = useState(0);
+  // Progress Bar
+  const { scrollYProgress } = useScroll();
 
+  // Hero Fade & Scale
+  const { scrollY } = useScroll();
+  const heroOpacity = useTransform(
+    scrollY,
+    [0, 700],
+    [1, 0]
+  );
+  const heroScale = useTransform(
+    scrollY,
+    [0, 700],
+    [1, 0.8]
+  );
+  
+  // Scroll Tracking
+  const [windowScrollY, setWindowScrollY] = useState(0);
+  
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      setWindowScrollY(window.scrollY);
     }
     window.addEventListener("scroll", handleScroll);
     
@@ -114,17 +129,18 @@ function App() {
               height: star.height,
               animation: `twinkle ${star.animationDuration} infinite`,
               ...star.style,
-              y: scrollY * 0.2
+              y: windowScrollY * 0.2
             }}
           ></div>
         ))}
 
-<motion.div
-  className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--themeRose)] to-[var(--themeCream)] z-[9999] origin-left"
-  style={{
-    scaleX: scrollYProgress
-  }}
-/>
+        {/* Progress Bar */}
+        <motion.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--themeRose)] to-[var(--themeCream)] z-[9999] origin-left"
+          style={{
+            scaleX: scrollYProgress
+          }}
+        />
 
         {/* NAVIGATION BAR */}
         <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full flex justify-between items-center z-50 shadow-lg">
@@ -156,6 +172,13 @@ function App() {
 
         {/* HERO SECTION */}
         <section className="h-screen flex flex-col justify-center items-center text-center px-4">
+        <motion.div
+          style={{
+            opacity: heroOpacity,
+            scale: heroScale
+          }}
+          className="flex flex-col items-center text-center"
+        >
 
           {/* Welcome Badge */}
           <div className="mb-6 px-4 py-1.5 font-semibold text-sm text-[var(--themeCream)] bg-[var(--themeDark)]/50 border border-white/10 rounded-full flex items-center gap-2 shadow-sm backdrop-blur-sm animate-pulse">
@@ -176,6 +199,7 @@ function App() {
             >
               Portfolio
             </motion.h1>
+
             <motion.span
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +216,7 @@ function App() {
             Crafting Clean & Colorful Interfaces.
           </h2>
 
-          <p className="mt-6 text-[var(--themePink)] font-semibold text-lg md:text-xl min-h-[30px] flex">
+          <p className="mt-6 text-[var(--themePink)] font-semibold text-lg md:text-xl min-h-[30px] flex justify-center items-center">
             <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
             <Typewriter 
               words={[
@@ -224,12 +248,13 @@ function App() {
             </a>
           </div>
 
+        </motion.div>
         </section>
 
         {/* ABOUT SECTION */}
         <section id="about" className="px-8 py-32 bg-transparent text-white">
           <motion.h2
-            initial={{ opacity: 0, y: -30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: false }} 
@@ -301,10 +326,16 @@ function App() {
 
         {/* SKILLS SECTION */}
         <section id="skills" className="px-8 py-32 bg-transparent">
-          <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white">
+          <motion.h2 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }} 
+            className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white"
+          >
             <Cpu className="w-9 h-9 text-[var(--themeCream)]" />
             Skills & Technologies
-          </h2>
+          </motion.h2>
 
           {/* Main Skills Container */}
           <div className="max-w-4xl mx-auto flex flex-col gap-8 p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-xl">
@@ -371,10 +402,16 @@ function App() {
 
         {/* PROJECTS SECTION */}
         <section id="projects" className="px-8 py-32 bg-transparent">
-          <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white">
+          <motion.h2 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }} 
+            className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white"
+          >
             <FolderGit2 className="w-9 h-9 text-[var(--themeCream)]" />
             Featured Projects
-          </h2>
+          </motion.h2>
 
           {/* Project Cards */}
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -413,9 +450,15 @@ function App() {
 
         {/* CONTACT SECTION */}
         <section id="contact" className="px-8 py-32 bg-transparent flex flex-col items-center">
-          <h2 className="text-4xl font-bold text-center mb-16 text-white">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }}  
+            className="text-4xl font-bold text-center mb-16 text-white"
+          >
             Get In Touch
-          </h2>
+          </motion.h2>
 
           {/* STEP 1: Icons & Quick Links */}
           <div className="flex justify-center gap-4 mb-12 w-full max-w-sm md:max-w-md">
