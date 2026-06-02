@@ -3,7 +3,12 @@ import './App.css';
 import { projectInfo, skillInfo } from "./data";
 import { FolderGit2, Cpu, Send, Sparkles } from 'lucide-react';
 import { Typewriter } from "react-simple-typewriter";
+import { motion, useScroll } from "framer-motion";
 import profilePicture from './assets/main-image-ezgi.jpeg';
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 
 function App() {
 
@@ -19,6 +24,9 @@ function App() {
       y: e.clientY
     });
   };
+
+  // Progress Bar
+  const { scrollYProgress } = useScroll();
 
   // Datas of Stars
   const stars = useMemo(() => {
@@ -76,6 +84,10 @@ function App() {
     }
   };
 
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div 
       onMouseMove={handleMouseMove} 
@@ -100,17 +112,26 @@ function App() {
               left: star.left,
               width: star.width,
               height: star.height,
-              animation: `twinkle ${star.animationDuration} infinite`
+              animation: `twinkle ${star.animationDuration} infinite`,
+              ...star.style,
+              y: scrollY * 0.2
             }}
           ></div>
         ))}
+
+<motion.div
+  className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--themeRose)] to-[var(--themeCream)] z-[9999] origin-left"
+  style={{
+    scaleX: scrollYProgress
+  }}
+/>
 
         {/* NAVIGATION BAR */}
         <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full flex justify-between items-center z-50 shadow-lg">
 
           {/* Logo Area */}
           <div className="text-[var(--themeCream)] text-2xl font-bold">
-            <a href="#">Ezgi.</a>
+            <a onClick={() => window.scrollTo(0, 0)}>Ezgi.</a>
           </div>
 
           {/* Navigation Links */}
@@ -146,16 +167,28 @@ function App() {
           {/* Main Headline */}
           <div className="relative flex flex-col justify-center items-center select-none py-10">
 
-            <h1 className="text-8xl md:text-[11rem] font-black text-[var(--themeCream)]/20 tracking-wider uppercase bg-clip-text leading-none">
+            <motion.h1 
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }}
+              className="text-6xl sm:text-7xl md:text-[11rem] font-black text-[var(--themeCream)]/30 tracking-wider uppercase bg-clip-text leading-none"
+            >
               Portfolio
-            </h1>
-            <span className="absolute text-6xl md:text-8xl font-signature text-white/60 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transform -rotate-3 mt-5 whitespace-nowrap top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+            </motion.h1>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: false }} 
+              className="absolute text-5xl sm:text-6xl md:text-8xl font-signature text-white/70 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transform -rotate-3 mt-5 whitespace-nowrap top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
               Ezgi Nur Yigit
-            </span>
+            </motion.span>
 
           </div>
 
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--themeCream)] text-center">
+          <h2 className="text-xl md:text-3xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--themeCream)] text-center">
             Crafting Clean & Colorful Interfaces.
           </h2>
 
@@ -195,14 +228,26 @@ function App() {
 
         {/* ABOUT SECTION */}
         <section id="about" className="px-8 py-32 bg-transparent text-white">
-          <h2 className="text-4xl font-bold text-center mb-16 text-white">
+          <motion.h2
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: false }} 
+            className="text-4xl font-bold text-center mb-16 text-white"
+          >
             About Me
-          </h2>
+          </motion.h2>
 
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-12 items-center">
             
             {/* Left Column */}
-            <div className="flex justify-center items-center relative h-[400px] w-full">
+            <motion.div 
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: false }}
+              className="flex justify-center items-center relative h-[400px] w-full"
+            >
               {/* My Picture */}
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl z-10 backdrop-blur-sm bg-white/5">
                 <img 
@@ -211,24 +256,45 @@ function App() {
                   className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Middle Column */}
-            <div className="text-center md:text-left flex-flex-col gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: false }}
+              className="text-center md:text-left flex flex-col gap-6"
+            >
               <p className="text-[var(--themeCream)]/80 font-medium leading-relaxed text-base md:text-lg">
                 Hello! I'm Ezgi, a passionate software development student. I enjoy bridging the gap between engineering and design — combining my technical knowledge with my keen eye for aesthetics to create beautiful, functional products.
               </p>
               <p className="text-[var(--themeCream)]/80 font-medium leading-relaxed text-base md:text-lg">
                 My goal is to build applications that are scalable and efficient under the hood while providing engaging, pixel-perfect user experiences. When I'm not coding, I love exploring new design trends and continuously learning new technologies.
               </p>
-            </div>
+            </motion.div>
 
             {/* Right Column */}
-            <div className="flex flex-col gap-6 items-center">
-              <div className="text-white/20 border border-dashed border-white/20 w-full max-w-sm h-64 rounded-2xl flex items-center justify-center">
-               
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: false }}
+              className="w-full max-w-sm p-6 m-8 mx-auto rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl"
+            >
+              <h3 className="text-xl font-bold text-[var(--themeCream)] mb-4">
+                🎓 Education
+              </h3>
+              <p className="font-semibold text-white">
+                Software Development
+              </p>
+              <p className="text-white/60 text-sm">
+                Bulent Ecevit University
+              </p>
+              <p className="text-white/50 text-xs mt-1">
+                2025 - Present
+              </p>
+            </motion.div>
 
           </div>
         </section>
@@ -257,9 +323,18 @@ function App() {
                   {skillInfo
                     .filter((skill) => skill.category === cat)
                     .map((skill, skillIndex) => ( 
-                      <span key={skillIndex} className="px-3 py-1.5 text-xs md:text-sm text-white bg-white/10 rounded-xl font-semibold border border-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 hover:text-[var(--themeDeep)] hover:shadow-md cursor-pointer">
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{
+                          delay: skillIndex * 0.03
+                        }} 
+                        viewport={{ once: false }} 
+                        key={skillIndex} 
+                        className="px-3 py-1.5 text-xs md:text-sm text-white bg-white/10 rounded-xl font-semibold border border-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 hover:text-[var(--themeDeep)] hover:shadow-md cursor-pointer"
+                      >
                         {skill.name}
-                      </span>
+                      </motion.span>
                     ))}
                 </div>
 
@@ -305,8 +380,17 @@ function App() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
             {projectInfo.map((project, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-              {/* Container Main Grid */}
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1
+                }}
+                viewport={{ once: false }} 
+                key={index} 
+                className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+              > {/* Container Main Grid */}
               
                 <h3 className="text-[var(--themePink)] text-xl font-bold">{project.title}</h3>
                 <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">{project.description}</p>
@@ -321,7 +405,7 @@ function App() {
                 ))}
 
               </div>
-            </div>
+            </motion.div>
             ))}
 
           </div>
