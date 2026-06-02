@@ -120,10 +120,10 @@ function App() {
               <a href="#about">About</a>
             </li>
             <li className="hover:text-[var(--themeCream)] transition-colors cursor-pointer">
-              <a href="#projects">Projects</a> 
+              <a href="#skills">Skills</a> 
             </li>
             <li className="hover:text-[var(--themeCream)] transition-colors cursor-pointer">
-              <a href="#skills">Skills</a> 
+              <a href="#projects">Projects</a> 
             </li>
             <li className="hover:text-[var(--themeCream)] transition-colors cursor-pointer">
               <a href="#contact">Contact</a> 
@@ -144,10 +144,21 @@ function App() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight max-w-4xl leading-tight">
-            Ezgi. <br/>
-            <span className="mt-6 text-[var(--themeCream)]">Crafting Clean & Colorful Interfaces.</span>
-          </h1>
+          <div className="relative flex flex-col justify-center items-center select-none py-10">
+
+            <h1 className="text-8xl md:text-[11rem] font-black text-[var(--themeCream)]/20 tracking-wider uppercase bg-clip-text leading-none">
+              Portfolio
+            </h1>
+            <span className="absolute text-6xl md:text-8xl font-signature text-white/60 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] transform -rotate-3 mt-5 whitespace-nowrap top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+              Ezgi Nur Yigit
+            </span>
+
+          </div>
+
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--themeCream)] text-center">
+            Crafting Clean & Colorful Interfaces.
+          </h2>
+
           <p className="mt-6 text-[var(--themePink)] font-semibold text-lg md:text-xl min-h-[30px] flex">
             <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
             <Typewriter 
@@ -168,12 +179,16 @@ function App() {
 
           {/* Action Buttons */}
           <div className="flex gap-4 mt-10">
-            <button className="bg-[var(--themeDark)] text-[var(--themeCream)] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[#852E4E] transition-all duration-200 active:scale-95 hover:scale-[1.02]">
+            <a 
+              href="#projects" 
+              className="bg-[var(--themeDark)] text-[var(--themeCream)] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[#852E4E] transition-all duration-200 active:scale-95 hover:scale-[1.02]">
               View Projects
-            </button>
-            <button className="text-white border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white/10 transition-all duration-200 active:scale-95 hover:scale-[1.02]">
+            </a>
+            <a
+              href="#contact" 
+              className="text-white border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white/10 transition-all duration-200 active:scale-95 hover:scale-[1.02]">
               Contact Me
-            </button>
+            </a>
           </div>
 
         </section>
@@ -214,39 +229,6 @@ function App() {
                
               </div>
             </div>
-
-          </div>
-        </section>
-
-        {/* PROJECTS SECTION */}
-        <section id="projects" className="px-8 py-32 bg-transparent">
-          <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white">
-            <FolderGit2 className="w-9 h-9 text-[var(--themeCream)]" />
-            Featured Projects
-          </h2>
-
-          {/* Project Cards */}
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {projectInfo.map((project, index) => (
-              <div key={index} className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-              {/* Container Main Grid */}
-              
-                <h3 className="text-[var(--themePink)] text-xl font-bold">{project.title}</h3>
-                <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">{project.description}</p>
-
-                {/* Badges Container */}
-                <div className="flex flex-wrap gap-2 mt-6">
-
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/70 rounded-full border border-[var(--themeDark)]/10">
-                    {tech}
-                  </span>
-                ))}
-
-              </div>
-            </div>
-            ))}
 
           </div>
         </section>
@@ -312,6 +294,39 @@ function App() {
           </div>
         </section>
 
+        {/* PROJECTS SECTION */}
+        <section id="projects" className="px-8 py-32 bg-transparent">
+          <h2 className="text-4xl font-bold text-center mb-16 flex items-center justify-center gap-3 text-white">
+            <FolderGit2 className="w-9 h-9 text-[var(--themeCream)]" />
+            Featured Projects
+          </h2>
+
+          {/* Project Cards */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            {projectInfo.map((project, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+              {/* Container Main Grid */}
+              
+                <h3 className="text-[var(--themePink)] text-xl font-bold">{project.title}</h3>
+                <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">{project.description}</p>
+
+                {/* Badges Container */}
+                <div className="flex flex-wrap gap-2 mt-6">
+
+                {project.technologies.map((tech, techIndex) => (
+                  <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/70 rounded-full border border-[var(--themeDark)]/10">
+                    {tech}
+                  </span>
+                ))}
+
+              </div>
+            </div>
+            ))}
+
+          </div>
+        </section>
+
         {/* CONTACT SECTION */}
         <section id="contact" className="px-8 py-32 bg-transparent flex flex-col items-center">
           <h2 className="text-4xl font-bold text-center mb-16 text-white">
@@ -359,7 +374,17 @@ function App() {
             </a>
           </div>
 
-          {/* STEP 2: Interaction Form */}
+          {/* STEP 2: Comprehensive Contact Card */}
+          <div className="w-full max-w-sm md:max-w-md bg-white/10 backdrop-blur-md p-8 mb-12 rounded-3xl shadow-sm border border-white/20 text-center shadow-xl">
+            <h3 className="text-xl font-bold mb-3 text-[var(--themeCream)]">
+              Current Status 🎯
+            </h3>
+            <p className="text-white/80 font-medium leading-relaxed text-sm md:text-base">
+              I am currently looking for software development internship opportunities and open-source collaborations. If you have a project or just want to say hi, feel free to reach out!
+            </p>
+          </div>
+
+          {/* STEP 3: Interaction Form */}
           <h3 className="flex justify-center font-bold text-[var(--themeCream)] mx-3 mb-5">
             Contact Me Directly If You Wish
           </h3>
@@ -399,18 +424,6 @@ function App() {
               <Send className="w-4 h-4" />
             </button>
           </form>
-
-            {/* STEP 3 : Comprehensive Contact Card */}
-          <div className="w-full max-w-sm md:max-w-md bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-white/20 text-center shadow-xl">
-            <h3 className="text-xl font-bold mb-3 text-[var(--themeCream)]">
-              Current Status 🎯
-            </h3>
-            <p className="text-white/80 font-medium leading-relaxed text-sm md:text-base">
-              I am currently looking for software development internship opportunities and open-source collaborations. If you have a project or just want to say hi, feel free to reach out!
-            </p>
-          </div>
-
-          
 
         </section>
 

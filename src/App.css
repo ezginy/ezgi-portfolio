@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.font-signature {
+  font-family: 'Great Vibes', cursive;
+}
 :root {
   --themeCream: #FFBB94;
   --themePink: #FB9590;
