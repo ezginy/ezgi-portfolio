@@ -393,7 +393,7 @@ function App() {
                 What Am I Working On Currently?
               </h3>
               <p className="text-white/75 font-medium leading-relaxed text-sm md:text-base">
-                I am currently diving deep into <strong>TypeScript</strong> to elevate my frontend skills. At the same time, I am building practices on React performance optimization and clean code architectures. My goal is to always back the colorful interfaces I design with solid, type-safe development logic!
+                I am currently focusing on <strong>Node.js</strong> and modern backend development while strengthening my expertise in <strong>React</strong> and <strong>TypeScript</strong>. Through personal projects, I continuously improve my understanding of scalable architectures, API development, and clean code principles to build reliable, production-oriented applications.
               </p>
             </div>
 
@@ -507,7 +507,7 @@ function App() {
               Current Status 🎯
             </h3>
             <p className="text-white/80 font-medium leading-relaxed text-sm md:text-base">
-              I am currently looking for software development internship opportunities and open-source collaborations. If you have a project or just want to say hi, feel free to reach out!
+              I'm currently seeking frontend development internship opportunities while expanding my knowledge of backend technologies. I'm always eager to learn, collaborate on meaningful projects, and gain real-world development experience. If you have a project or just want to say hi, feel free to reach out!
             </p>
           </div>
 
