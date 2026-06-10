@@ -426,22 +426,80 @@ function App() {
                 }}
                 viewport={{ once: false }} 
                 key={index} 
-                className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                className="bg-white/5 backdrop-blur-md text-[var(--themeDark)] overflow-hidden p-8 rounded-2xl border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col"
               > {/* Container Main Grid */}
               
-                <h3 className="text-[var(--themePink)] text-xl font-bold">{project.title}</h3>
-                <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">{project.description}</p>
+                {/* Projects' Preview */}
+                {project.images ? (
+                  <img
+                    src={project.images}
+                    alt={project.title}
+                    className="w-full aspect-video object-cover rounded-xl mb-6"
+                  />
+                ) : (
+                  <div className="w-full aspect-video rounded-xl mb-6 bg-white/5 border border-white/10 flex flex-col items-center justify-center">
+                    <span className="text-3xl mb-2">🚧</span>
+                    <p className="text-[var(--themeCream)] font-semibold">
+                      {project.title}
+                    </p>
+                    <p className="text-white/50 text-sm">
+                    Preview Coming Soon
+                    </p>
+                  </div>
+                )}
+
+                <h3 className="text-[var(--themePink)] text-xl font-bold">
+                  {project.title}
+                </h3>
+                <p className="mt-4 text-stone-300 font-medium text-sm md:text-base">
+                  {project.description}
+                </p>
 
                 {/* Badges Container */}
                 <div className="flex flex-wrap gap-2 mt-6">
 
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/70 rounded-full border border-[var(--themeDark)]/10">
-                    {tech}
-                  </span>
-                ))}
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="px-3 py-1 text-xs font-bold text-[var(--themeDark)] bg-[var(--themeCream)]/70 rounded-full border border-[var(--themeDark)]/10">
+                      {tech}
+                    </span>
+                  ))}
 
-              </div>
+                </div>
+
+                {/* Link Buttons */}
+                <div className="flex gap-3 mt-auto pt-6">  
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-lg bg-[var(--themeCream)] text-[var(--themeDark)] font-semibold text-sm hover:opacity-90 transition"
+                    >
+                      ​🌐 ​Live Demo
+                    </a>
+                  )}
+
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-lg bg-[var(--themePink)] text-white font-semibold text-sm hover:opacity-90 transition"
+                    >
+                      💻 Source Code
+                    </a>
+                  )}
+
+                  {project.comingSoon && (
+                    <button
+                      disabled
+                      className="px-4 py-2 rounded-lg bg-[var(--themeCream)] text-[var(--themeDark)] text-sm font-semibold opacity-50 cursor-not-allowed"
+                    >
+                      ⏰​⏳​⌛​ Coming Soon
+                    </button>
+                  )}
+                </div>
+
             </motion.div>
             ))}
 
