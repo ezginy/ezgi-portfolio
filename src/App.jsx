@@ -338,7 +338,7 @@ function App() {
           </motion.h2>
 
           {/* Main Skills Container */}
-          <div className="max-w-4xl mx-auto flex flex-col gap-8 p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-xl">
+          <div className="max-w-5xl mx-auto flex flex-col gap-8 p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-xl">
             
             {/* Cycles of Categories */}
             {["Frontend", "Backend", "Tools", "Other"].map((cat, catIndex) => ( 
@@ -353,20 +353,24 @@ function App() {
                 <div className="md:w-3/4 flex flex-wrap gap-2">
                   {skillInfo
                     .filter((skill) => skill.category === cat)
-                    .map((skill, skillIndex) => ( 
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          delay: skillIndex * 0.03
-                        }} 
-                        viewport={{ once: false }} 
-                        key={skillIndex} 
-                        className="px-3 py-1.5 text-xs md:text-sm text-white bg-white/10 rounded-xl font-semibold border border-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 hover:text-[var(--themeDeep)] hover:shadow-md cursor-pointer"
-                      >
-                        {skill.name}
-                      </motion.span>
-                    ))}
+                    .map((skill, skillIndex) => { 
+                      const Icon = skill.icon;
+                      return (
+                        <motion.span
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{
+                            delay: skillIndex * 0.03
+                          }} 
+                          viewport={{ once: false }} 
+                          key={skillIndex} 
+                          className="flex items-center gap-2 px-3 py-1.5 text-xs md:text-sm text-white bg-white/10 rounded-xl font-semibold border border-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/20 hover:text-[var(--themeDeep)] hover:shadow-md cursor-pointer"
+                        >
+                          {Icon && <Icon />}
+                          {skill.name}
+                        </motion.span> 
+                      );
+                  })}
                 </div>
 
               </div>
@@ -495,7 +499,7 @@ function App() {
                       disabled
                       className="px-4 py-2 rounded-lg bg-[var(--themeCream)] text-[var(--themeDark)] text-sm font-semibold opacity-50 cursor-not-allowed"
                     >
-                      ⏰​⏳​⌛​ Coming Soon
+                      🚧​ Coming Soon
                     </button>
                   )}
                 </div>

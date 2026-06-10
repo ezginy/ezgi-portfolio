@@ -1,3 +1,7 @@
+import { icons } from "lucide-react";
+import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiCplusplus, SiJson } from "react-icons/si";
+
 // PROJECT'S DATAS
 export const projectInfo = [
     {
@@ -32,7 +36,7 @@ export const projectInfo = [
         liveUrl: "https://ezginy.github.io/focusly/",
     },
     {
-        title: "MindCare App",
+        title: "MindCare",
         description: "A simple mental health check-in web app that helps users reflect on their mood and needs, and provides supportive responses.",
         technologies: ["HTML5", "CSS3", "JavaScript"],
 
@@ -57,25 +61,24 @@ export const projectInfo = [
 export const skillInfo = [
 
     // Frontend Skills
-    { name: "HTML5", category: "Frontend" },
-    { name: "CSS3", category: "Frontend" },
-    { name: "JavaScript", category: "Frontend" },
-    { name: "Tailwind CSS", category: "Frontend" },
-    { name: "React", category: "Frontend" },
-    { name: "TypeScript", category: "Frontend" },
+    { name: "HTML5", icon: FaHtml5, category: "Frontend" },
+    { name: "CSS3", icon: FaCss3Alt, category: "Frontend" },
+    { name: "JavaScript", icon: SiJavascript, category: "Frontend" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frontend" },
+    { name: "React", icon: FaReact, category: "Frontend" },
+    { name: "TypeScript", icon: SiTypescript, category: "Frontend" },
 
     // Backend Skills
-    { name: "Node.js", category: "Backend" },
-    { name: "C++", category: "Backend" },
-    { name: "Python (Beginner)", category: "Backend" },
+    { name: "Node.js", icon: FaNodeJs, category: "Backend" },
+    { name: "C++", icon: SiCplusplus, category: "Backend" },
 
     // Tool Skills
-    { name: "Git", category: "Tools" },
-    { name: "Github", category: "Tools" },
-    { name: "VS Code", category: "Tools" },
+    { name: "Git", icon: FaGitAlt, category: "Tools" },
+    { name: "GitHub", icon: FaGithub, category: "Tools" },
+    { name: "VS Code", icon: null, category: "Tools" },
 
     // Other Skills
-    { name: "REST APIs", category: "Other" },
-    { name: "Terminal", category: "Other" },
-    { name: "JSON", category: "Other" },
+    { name: "REST APIs", icon: null, category: "Other" },
+    { name: "Terminal", icon: null, category: "Other" },
+    { name: "JSON", icon: SiJson, category: "Other" },
 ];
