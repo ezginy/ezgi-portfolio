@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { projectInfo, skillInfo } from "./data";
-import { FolderGit2, Cpu, Send, Sparkles } from 'lucide-react';
+import { FolderGit2, Cpu, Send, Sparkles, Sparkle } from 'lucide-react';
 import { Typewriter } from "react-simple-typewriter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import profilePicture from './assets/main-image-ezgi.jpeg';
@@ -181,7 +181,7 @@ function App() {
         >
 
           {/* Welcome Badge */}
-          <div className="mb-6 px-4 py-1.5 font-semibold text-sm text-[var(--themeCream)] bg-[var(--themeDark)]/50 border border-white/10 rounded-full flex items-center gap-2 shadow-sm backdrop-blur-sm animate-pulse">
+          <div className="mb-2 mt-12 px-4 py-1.5 font-semibold text-sm text-[var(--themeCream)] bg-[var(--themeDark)]/50 border border-white/10 rounded-full flex items-center gap-2 shadow-sm backdrop-blur-sm animate-pulse">
             <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
             <span>👋 Welcome to my portfolio!</span>
             <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
@@ -213,16 +213,18 @@ function App() {
           </div>
 
           <h2 className="text-xl md:text-3xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--themeCream)] text-center">
-            Crafting Clean & Colorful Interfaces.
+            Building Scalable Systems & Intuitive Interfaces.
           </h2>
 
           <p className="mt-6 text-[var(--themePink)] font-semibold text-lg md:text-xl min-h-[30px] flex justify-center items-center">
             <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
             <Typewriter 
               words={[
+                'Software Development Student',
+                'Aspiring Software Engineer',
                 'Frontend Developer',
-                'Software Developer Student',
-                'UI/UX Enthusiast'
+                'Backend Developer',
+                'Building Scalable Systems',
               ]}
               loop={0} cursor cursorStyle='|' typeSpeed={90} deleteSpeed={50} delaySpeed={2000} 
             />
@@ -230,8 +232,7 @@ function App() {
 
           {/* Short Bio */}
           <p className="mt-8 text-[var(--themeCream)]/80 font-medium max-w-2xl mx-auto text-base md:text-lg">
-            A software development student focused on creating intuitive web experiences. 
-            I love combining robust logic with elegant, user-friendly designs.
+            A software development student driven to build efficient, scalable backend architectures while maintaining a strong foundation in user-centric web experiences.
           </p>
 
           {/* Action Buttons */}
@@ -291,11 +292,15 @@ function App() {
               viewport={{ once: false }}
               className="text-center md:text-left flex flex-col gap-6"
             >
-              <p className="text-[var(--themeCream)]/80 font-medium leading-relaxed text-base md:text-lg">
-                Hello! I'm Ezgi, a passionate software development student. I enjoy bridging the gap between engineering and design — combining my technical knowledge with my keen eye for aesthetics to create beautiful, functional products.
+              <h2 className="text-[var(--themeCream)] mb-4 font-bold text-xl md:text-2xl tracking-wide">
+                Software Engineer focused on Scalable Backend Systems
+              </h2>
+              
+              <p className="text-gray-300 font-medium leading-relaxed text-base md:text-lg">
+                Hi! I'm Ezgi, a passionate software development student. Having built a strong foundation in frontend development, I have now pivoted towards backend engineering with a focus on Java. I enjoy bridging the gap between user-centric design and robust, highly scalable server-side architectures.
               </p>
-              <p className="text-[var(--themeCream)]/80 font-medium leading-relaxed text-base md:text-lg">
-                My goal is to build applications that are scalable and efficient under the hood while providing engaging, pixel-perfect user experiences. When I'm not coding, I love exploring new design trends and continuously learning new technologies.
+              <p className="text-gray-300 font-medium leading-relaxed text-base md:text-lg">
+                My goal is to design and build efficient systems capable of handling complex challenges. I am deeply interested in data structures, algorithms, OOP and the Java ecosystem. Currently, I am expanding my knowledge in RESTful APIs and distributed systems, striving to engineer impactful technologies that can perform flawlessly at scale.
               </p>
             </motion.div>
 
@@ -317,7 +322,7 @@ function App() {
                 Bulent Ecevit University
               </p>
               <p className="text-white/50 text-xs mt-1">
-                2025 - Present
+                Expected 2029
               </p>
             </motion.div>
 
@@ -397,7 +402,7 @@ function App() {
                 What Am I Working On Currently?
               </h3>
               <p className="text-white/75 font-medium leading-relaxed text-sm md:text-base">
-                I am currently focusing on <strong>Node.js</strong> and modern backend development while strengthening my expertise in <strong>React</strong> and <strong>TypeScript</strong>. Through personal projects, I continuously improve my understanding of scalable architectures, API development, and clean code principles to build reliable, production-oriented applications.
+                I am currently building a strong computer science foundation with <strong>Java</strong>. Focusing on <i>object-oriented programming, data structures, algorithms, and problem-solving</i> while preparing for future large-scale backend development. 
               </p>
             </div>
 
@@ -564,13 +569,16 @@ function App() {
           </div>
 
           {/* STEP 2: Comprehensive Contact Card */}
-          <div className="w-full max-w-sm md:max-w-md bg-white/10 backdrop-blur-md p-8 mb-12 rounded-3xl shadow-sm border border-white/20 text-center shadow-xl">
-            <h3 className="text-xl font-bold mb-3 text-[var(--themeCream)]">
+          <div className="w-full max-w-sm md:max-w-md bg-white/10 backdrop-blur-md p-8 mb-12 rounded-3xl shadow-sm border border-white/20 shadow-xl">
+            <h3 className="text-xl font-bold mb-3 text-[var(--themeCream)] text-center">
               Current Status 🎯
             </h3>
-            <p className="text-white/80 font-medium leading-relaxed text-sm md:text-base">
-              I'm currently seeking frontend development internship opportunities while expanding my knowledge of backend technologies. I'm always eager to learn, collaborate on meaningful projects, and gain real-world development experience. If you have a project or just want to say hi, feel free to reach out!
-            </p>
+            <div className="text-white/80 font-medium leading-relaxed text-sm md:text-base text-left space-y-2">
+              <p>🎓 Software Development Undergraduate Student</p>
+              <p>☕ Building a strong foundation with Java</p>
+              <p>🧩 Studying OOP, Data Structures & Algorithms</p>
+              <p>🔍 Actively seeking Software Development and Software Engineering Internship Opportunities</p> 
+            </div>
           </div>
 
           {/* STEP 3: Interaction Form */}
@@ -615,6 +623,17 @@ function App() {
           </form>
 
         </section>
+
+        {/* Footer Section */}
+        <footer className="w-full py-8 mt-20 border-t border-[var(--themeCream)]/10 flex flex-col items-center justify-center gap-2">
+          <p className="text-[var(--themeCream)]/70 text-sm md:text-base font-medium tracking-wide flex">
+            Designed & Built by Ezgi 
+            <Sparkles className="w-4 h-4 text-[var(--themePink)]" />
+          </p>
+          <p className="text-[var(--themeCream)]/40 text-xs tracking-wider">
+            © 2026 all rights reserved.
+          </p>
+        </footer>
 
     </div>
   )

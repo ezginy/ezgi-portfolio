@@ -1,5 +1,5 @@
 import { icons } from "lucide-react";
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaReact, FaJava, FaGitAlt, FaGithub } from "react-icons/fa";
 import { SiJavascript, SiTypescript, SiTailwindcss, SiCplusplus, SiJson } from "react-icons/si";
 
 // PROJECT'S DATAS
@@ -64,13 +64,13 @@ export const skillInfo = [
     { name: "HTML5", icon: FaHtml5, category: "Frontend" },
     { name: "CSS3", icon: FaCss3Alt, category: "Frontend" },
     { name: "JavaScript", icon: SiJavascript, category: "Frontend" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frontend" },
     { name: "React", icon: FaReact, category: "Frontend" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, category: "Frontend" },
     { name: "TypeScript", icon: SiTypescript, category: "Frontend" },
 
     // Backend Skills
-    { name: "Node.js", icon: FaNodeJs, category: "Backend" },
     { name: "C++", icon: SiCplusplus, category: "Backend" },
+    { name: "Java", icon: FaJava, category: "Backend" },
 
     // Tool Skills
     { name: "Git", icon: FaGitAlt, category: "Tools" },
