@@ -4,12 +4,15 @@
   font-family: 'Great Vibes', cursive;
 }
 :root {
-  --themeCream: #FFBB94;
-  --themePink: #FB9590;
-  --themeRose: #DC586D;
-  --themePlum: #A33757;
-  --themeDeep: #852E4E;
-  --themeDark: #4C1D3D;
+  --color-bg: #1A2235;            /* Actual background */
+  --color-surface: #253046;       /* Buttons and card backgrounds */
+  --color-surface-hover: #131926; /* Buton hover effects */
+
+  --color-text: #F8FAFC;          /* Paragraphs */
+
+  --color-primary: #AECBFA;       /* Main highlights, links, ikons */
+  --color-accent: #FDE68A;        /* Headlines, badges ve important touches */
+  --color-secondary: #F9A8D4;     /* Spesific things */
 }
 
 .stars-layer {
