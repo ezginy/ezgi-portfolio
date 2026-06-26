@@ -29,7 +29,7 @@ function App() {
 
   // Datas of Stars
   const stars = useMemo(() => {
-    return [...Array(100)].map(() => ({
+    return [...Array(250)].map(() => ({
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
       opacity: Math.random(),
@@ -442,22 +442,46 @@ function App() {
                 className="bg-[var(--color-surface)]/60 backdrop-blur-md text-[var(--color-text)] overflow-hidden p-8 rounded-2xl border border-[var(--color-primary)]/10 shadow-xl hover:shadow-[var(--color-primary)]/10 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer flex flex-col"
               > {/* Container Main Grid */}
               
-                {/* Projects' Preview */}
+                {/* Projects' Preview With 3 Case */}
                 {project.images ? (
                   <img
                     src={project.images}
                     alt={project.title}
                     className="w-full aspect-video object-cover rounded-xl mb-6"
                   />
-                ) : (
+                ) : project.comingSoon ? (
                   <div className="w-full aspect-video rounded-xl mb-6 bg-[var(--color-surface-hover)]/50 border border-dashed border-[var(--color-accent)]/30 flex flex-col items-center justify-center">
                     <span className="text-3xl mb-2">🚧</span>
                     <p className="text-[var(--color-accent)] font-semibold">
                       {project.title}
                     </p>
-                    <p className="text-white/50 text-sm">
-                    Preview Coming Soon
+                    <p className="text-[var(--color-text)]/50 text-sm">
+                      Preview Coming Soon
                     </p>
+                  </div>
+                ) : (
+                  <div className="w-full aspect-video rounded-xl mb-6 bg-[#0a0a0a] border border-white/10 shadow-inner flex flex-col overflow-hidden font-mono">
+                    {/* Terminal Top Bar */}
+                    <div className="w-full bg-white/10 px-3 py-2 flex items-center gap-1.5 border-b border-white/5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+                      <span className="ml-2 text-[10px] text-white/50 lowercase">bash ~ {project.title.replace(/\s+/g, '-')}</span>
+                    </div>
+
+                    {/* Terminal Body */}
+                    <div className="flex-1 p-4 flex flex-col justify-center bg-[#0a0a0a]">
+                      <p className="text-[var(--color-primary)] font-semibold text-xs sm:text-sm">
+                        <span className="text-[var(--color-secondary)] mr-2">➜</span> 
+                        <span className="text-white/60">~</span> ./execute {project.title.split(' ')[0].toLowerCase()}
+                      </p>
+                      <p className="text-white/50 text-xs sm:text-sm mt-2">
+                        &gt; System initialized.
+                      </p>
+                      <p className="text-[var(--color-accent)] text-xs sm:text-sm mt-1 animate-pulse">
+                        &gt; Running console services..._
+                      </p>
+                    </div>
                   </div>
                 )}
 

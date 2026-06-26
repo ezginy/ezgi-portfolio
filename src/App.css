@@ -44,3 +44,16 @@
     transform: translateY(-40px);
   }
 }
+
+/* --- Double Scrollbar Solution --- */
+html {
+  overflow-y: auto !important;
+}
+
+body, #root {
+  overflow-y: visible !important;
+  height: auto !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
