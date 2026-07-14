@@ -217,7 +217,7 @@ function App() {
           </div>
 
           <h2 className="text-xl md:text-3xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--color-accent)] text-center">
-            Building Scalable Systems & Intuitive Interfaces.
+            Frontend Craft Meets Backend Curiosity.
           </h2>
 
           <p className="mt-6 text-[var(--color-secondary)] font-semibold text-lg md:text-xl min-h-[30px] flex justify-center items-center">
@@ -225,10 +225,9 @@ function App() {
             <Typewriter 
               words={[
                 'Software Development Student',
-                'Aspiring Software Engineer',
                 'Frontend Developer',
-                'Backend Developer',
-                'Building Scalable Systems',
+                'Aspiring Backend Engineer',
+                'Learning Java & Spring',
               ]}
               loop={0} cursor cursorStyle='|' typeSpeed={90} deleteSpeed={50} delaySpeed={2000} 
             />
@@ -236,20 +235,30 @@ function App() {
 
           {/* Short Bio */}
           <p className="mt-8 text-[var(--color-text)]/80 font-medium max-w-2xl mx-auto text-base md:text-lg">
-            A software development student driven to build efficient, scalable backend architectures while maintaining a strong foundation in user-centric web experiences.
+            A second-year software development student with hands-on frontend experience, now building backend fundamentals with Java — always curious about how things work under the hood.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex gap-4 mt-10">
+          <div className="flex flex-col items-center gap-6 mt-10">
+            <div className="flex gap-4">
+              <a 
+                href="#projects" 
+                className="bg-[var(--color-primary)] text-[var(--color-bg)] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[var(--color-secondary)] transition-all duration-200 active:scale-95 hover:scale-[1.02]">
+                View Projects
+              </a>
+              <a
+                href="#contact" 
+                className="text-white border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white/10 transition-all duration-200 active:scale-95 hover:scale-[1.02]">
+                Contact Me
+              </a>
+            </div>
+
             <a 
-              href="#projects" 
-              className="bg-[var(--color-primary)] text-[var(--color-bg)] px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[var(--color-secondary)] transition-all duration-200 active:scale-95 hover:scale-[1.02]">
-              View Projects
-            </a>
-            <a
-              href="#contact" 
-              className="text-white border-2 border-white/30 bg-white/5 backdrop-blur-sm px-8 py-3 rounded-full font-bold shadow-lg hover:bg-white/10 transition-all duration-200 active:scale-95 hover:scale-[1.02]">
-              Contact Me
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text)]/70 text-sm font-medium underline underline-offset-4 hover:text-[var(--color-accent)] transition-colors duration-200">
+              📄 Download Resume
             </a>
           </div>
 
@@ -297,15 +306,15 @@ function App() {
               className="text-center md:text-left flex flex-col gap-6"
             >
               <h2 className="text-[var(--color-accent)] mb-4 font-bold text-xl md:text-2xl tracking-wide">
-                Software Engineer focused on Scalable Backend Systems
+                Frontend Developer, Aspiring Backend Engineer
               </h2>
               
               <p className="text-[var(--color-text)]/90 font-medium leading-relaxed text-base md:text-lg">
-                Hi! I'm Ezgi, a passionate software development student. Having built a strong foundation in frontend development, I have now pivoted towards backend engineering with a focus on Java. I enjoy bridging the gap between user-centric design and robust, highly scalable server-side architectures.
-              </p>
+                Hi! I'm Ezgi, a passionate software development student. Having built a strong foundation in frontend development, I'm now diving into backend engineering with a focus on Java. I enjoy understanding how things work end-to-end — from the interface a user sees to the logic running behind it.
+             </p>
               <p className="text-[var(--color-text)]/90 font-medium leading-relaxed text-base md:text-lg">
-                My goal is to design and build efficient systems capable of handling complex challenges. I am deeply interested in data structures, algorithms, OOP and the Java ecosystem. Currently, I am expanding my knowledge in RESTful APIs and distributed systems, striving to engineer impactful technologies that can perform flawlessly at scale.
-              </p>
+                My goal is to become a well-rounded software engineer capable of building efficient, reliable systems. I'm currently strengthening my foundations in data structures, algorithms, and object-oriented programming, while starting to explore RESTful APIs — growing my skills one project and one challenge at a time.
+             </p>
             </motion.div>
 
             {/* Right Column */}
@@ -406,8 +415,8 @@ function App() {
                 What Am I Working On Currently?
               </h3>
               <p className="text-[var(--color-text)]/80 font-medium leading-relaxed text-sm md:text-base">
-                I am currently building a strong computer science foundation with <strong>Java</strong>. Focusing on <i>object-oriented programming, data structures, algorithms, and problem-solving</i> while preparing for future large-scale backend development. 
-              </p>
+                I'm currently building <strong>Tempora</strong>, a full-stack Kanban app, to strengthen my backend fundamentals with <strong>Java</strong> — while continuing to sharpen my <i>object-oriented programming, data structures, algorithms, and problem-solving</i> skills along the way. 
+             </p>
             </div>
 
           </div>
@@ -605,7 +614,7 @@ function App() {
               <p>🎓 Software Development Undergraduate Student</p>
               <p>☕ Building a strong foundation with Java</p>
               <p>🧩 Studying OOP, Data Structures & Algorithms</p>
-              <p>🔍 Actively seeking Software Development and Software Engineering Internship Opportunities</p> 
+              <p>🔍 Actively seeking Full-Stack or Software Engineering Internship Opportunities</p> 
             </div>
           </div>
 

@@ -5,6 +5,16 @@ import { SiJavascript, SiTypescript, SiTailwindcss, SiCplusplus, SiJson, SiIntel
 // PROJECT'S DATAS
 export const projectInfo = [
     {
+        title: "Tempora",
+        description: "A full-stack Kanban board that goes beyond task tracking by measuring how long each task stays in a column, helping users spot where their workflow slows down.",
+        technologies: ["React", "TypeScript", "Java", "RESTful API", "Tailwind CSS", "JSON Serialization"],
+
+        images: "",
+
+        githubUrl: "https://github.com/ezginy/tempora",
+        liveUrl: "",
+    },
+    {
         title: "Java DevLab",
         description: "A continuously growing repository of core Java exercises and mini-projects. It serves as my practical playground for mastering Object-Oriented Programming, data structures, and foundational backend concepts.",
         technologies: ["Java", "OOP", "Algorithms", "Data Structures"],
@@ -36,8 +46,8 @@ export const projectInfo = [
     },
     {
         title: "Focusly",
-        description: "A modern productivity dashboard. Focusly is a responsive Pomodoro and task management application designed to help users stay focused and organized.",
-        technologies: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
+        description: "A multi-page productivity dashboard combining a Pomodoro focus timer with task management and session analytics that tracks progress over time. Includes light/dark theme support and LocalStorage persistence, so data survives page reloads.",
+        technologies: ["HTML", "CSS", "JavaScript", "LocalStorage"],
 
         images: "/projects/focusly.webp",
 
@@ -56,24 +66,13 @@ export const projectInfo = [
     },
     {
         title: "MindCare",
-        description: "A simple mental health check-in web app that helps users reflect on their mood and needs, and provides supportive responses.",
-        technologies: ["HTML5", "CSS3", "JavaScript"],
+        description: "A mood check-in web app where users select their mood and current need; a data-driven matching system returns a randomized supportive response from multiple pre-written options per combination, with check-in history tracking for reflecting on past entries.",
+        technologies: ["HTML", "CSS", "JavaScript"],
 
         images: "/projects/mindcare.webp",
 
         githubUrl: "https://github.com/ezginy/mindcare-app",
         liveUrl: "https://ezginy.github.io/mindcare-app/",
-    },
-    {
-        title: "Syncro",
-        description: "A productivity-focused project management platform built to explore scalable frontend architecture, clean code practices, and modern UI design.",
-        technologies: ["React", "TypeScript", "Tailwind CSS"],
-
-        images: "",
-
-        githubUrl: "",
-        liveUrl: "",
-        comingSoon: true,
     },
 ];
 
@@ -95,12 +94,13 @@ export const skillInfo = [
     // Tool Skills
     { name: "Git", icon: FaGitAlt, category: "Tools" },
     { name: "GitHub", icon: FaGithub, category: "Tools" },
+    { name: "Maven", icon: null, category: "Tools" },
     { name: "VS Code", icon: null, category: "Tools" },
     { name: "IntelliJ", icon: SiIntellijidea, category: "Tools"},
     { name: "CLion", icon: SiClion, category: "Tools"},
 
     // Other Skills
-    { name: "REST APIs", icon: null, category: "Other" },
-    { name: "Terminal", icon: null, category: "Other" },
+    { name: "RESTful APIs", icon: null, category: "Other" },
     { name: "JSON", icon: SiJson, category: "Other" },
+    { name: "Terminal", icon: null, category: "Other" },
 ];
