@@ -12,7 +12,7 @@ This repository is the source code for my personal portfolio, serving as a livin
 I am constantly expanding my expertise to build performant and impactful applications:
 
 * **Frontend Engineering:** React, TypeScript, Tailwind CSS, JavaScript (ES6+)
-* **Backend & Systems:** Java, C++, RESTful APIs
+* **Backend & Systems:** Java, C++, REST API
 * **Deployment & Tools:** Vercel, Git, GitHub, Maven, IntelliJ IDEA, CLion, VS Code, JSON
 * **Concepts:** OOP, Data Structures, Algorithms, File I/O
 

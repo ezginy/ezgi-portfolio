@@ -1,28 +1,17 @@
-import { icons } from "lucide-react";
-import { FaHtml5, FaCss3Alt, FaReact, FaJava, FaGitAlt, FaGithub } from "react-icons/fa";
-import { SiJavascript, SiTypescript, SiTailwindcss, SiCplusplus, SiJson, SiIntellijidea, SiClion } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaReact, FaJava, FaGitAlt, FaGithub, FaDatabase, FaNetworkWired, FaTerminal } from "react-icons/fa";
+import { SiJavascript, SiTypescript, SiTailwindcss, SiCplusplus, SiJson, SiIntellijidea, SiClion, SiDocker, SiGithubactions, SiApachemaven, SiPostgresql, SiJunit5, SiVite } from "react-icons/si";
 
 // PROJECT'S DATAS
 export const projectInfo = [
     {
         title: "Tempora",
-        description: "A full-stack Kanban board that goes beyond task tracking by measuring how long each task stays in a column, helping users spot where their workflow slows down.",
-        technologies: ["React", "TypeScript", "Java", "RESTful API", "Tailwind CSS", "JSON Serialization"],
+        description: "A full-stack Kanban board that measures how long each task actually spends in progress and compares it against your estimate, surfacing where a workflow slows down. Timing is computed entirely server-side, so the client can't forge it. Built on a hand-written Java REST API — no framework, no ORM.",
+        technologies: ["Java", "PostgreSQL", "JDBC", "REST API", "Docker", "CI/CD", "React", "TypeScript",],
 
-        images: "",
+        images: "/projects/tempora.webp",
 
         githubUrl: "https://github.com/ezginy/tempora",
-        liveUrl: "",
-    },
-    {
-        title: "Java DevLab",
-        description: "A continuously growing repository of core Java exercises and mini-projects. It serves as my practical playground for mastering Object-Oriented Programming, data structures, and foundational backend concepts.",
-        technologies: ["Java", "OOP", "Algorithms", "Data Structures"],
-
-        images: "",
-
-        githubUrl: "https://github.com/ezginy/java-devlab",
-        liveUrl: "",
+        liveUrl: "https://tempora-gray.vercel.app/",
     },
     {
         title: "Portfolio Website",
@@ -90,17 +79,23 @@ export const skillInfo = [
     // Backend Skills
     { name: "Java", icon: FaJava, category: "Backend" },
     { name: "C++", icon: SiCplusplus, category: "Backend" },
+    { name: "PostgreSQL", icon: SiPostgresql, category: "Backend" },
 
     // Tool Skills
     { name: "Git", icon: FaGitAlt, category: "Tools" },
     { name: "GitHub", icon: FaGithub, category: "Tools" },
-    { name: "Maven", icon: null, category: "Tools" },
-    { name: "VS Code", icon: null, category: "Tools" },
+    { name: "CI/CD", icon: SiGithubactions, category: "Tools" },
+    { name: "Docker", icon: SiDocker, category: "Tools" },
+    { name: "Maven", icon: SiApachemaven, category: "Tools" },
+    { name: "Vite", icon: SiVite, category: "Tools" },
     { name: "IntelliJ", icon: SiIntellijidea, category: "Tools"},
+    { name: "VS Code", icon: null, category: "Tools" },
     { name: "CLion", icon: SiClion, category: "Tools"},
 
     // Other Skills
-    { name: "RESTful APIs", icon: null, category: "Other" },
+    { name: "REST API", icon: FaNetworkWired, category: "Other" },
+    { name: "JDBC", icon: FaDatabase, category: "Other" },
+    { name: "JUnit", icon: SiJunit5, category: "Other" },
     { name: "JSON", icon: SiJson, category: "Other" },
-    { name: "Terminal", icon: null, category: "Other" },
+    { name: "Terminal", icon: FaTerminal, category: "Other" },
 ];

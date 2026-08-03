@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { projectInfo, skillInfo } from "./data";
-import { FolderGit2, Cpu, Send, Sparkles, Sparkle } from 'lucide-react';
+import { FolderGit2, Cpu, Send, Sparkles } from 'lucide-react';
 import { Typewriter } from "react-simple-typewriter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import profilePicture from './assets/main-image-ezgi.jpeg';
@@ -9,6 +9,16 @@ import profilePicture from './assets/main-image-ezgi.jpeg';
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+
+// Datas of Stars
+const stars = [...Array(120)].map(() => ({
+  top: `${Math.random() * 100}%`,
+  left: `${Math.random() * 100}%`,
+  opacity: Math.random(),
+  width: `${Math.random() * 3 + 1}px`,
+  height: `${Math.random() * 3 + 1}px`,
+  animationDuration: `${Math.random() * 5 + 2}s`
+}));
 
 function App() {
 
@@ -25,20 +35,6 @@ function App() {
     });
   };
 
-  
-
-  // Datas of Stars
-  const stars = useMemo(() => {
-    return [...Array(250)].map(() => ({
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      opacity: Math.random(),
-      width: `${Math.random() * 3 + 1}px`,
-      height: `${Math.random() * 3 + 1}px`,
-      animationDuration: `${Math.random() * 5 + 2}s`
-    }));
-  }, []);
-
   // Progress Bar
   const { scrollYProgress } = useScroll();
 
@@ -54,20 +50,6 @@ function App() {
     [0, 700],
     [1, 0.8]
   );
-  
-  // Scroll Tracking
-  const [windowScrollY, setWindowScrollY] = useState(0);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setWindowScrollY(window.scrollY);
-    }
-    window.addEventListener("scroll", handleScroll);
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   /* Contact Form Feedback Loop: 
     - manages submission state 
@@ -128,8 +110,6 @@ function App() {
               width: star.width,
               height: star.height,
               animation: `twinkle ${star.animationDuration} infinite`,
-              ...star.style,
-              y: windowScrollY * 0.2
             }}
           ></div>
         ))}
@@ -217,7 +197,7 @@ function App() {
           </div>
 
           <h2 className="text-xl md:text-3xl font-bold tracking-tight max-w-4xl leading-tight mt-4 text-[var(--color-accent)] text-center">
-            Frontend Craft Meets Backend Curiosity.
+            Frontend Craft Meets Backend Engineering.
           </h2>
 
           <p className="mt-6 text-[var(--color-secondary)] font-semibold text-lg md:text-xl min-h-[30px] flex justify-center items-center">
@@ -226,8 +206,7 @@ function App() {
               words={[
                 'Software Development Student',
                 'Frontend Developer',
-                'Aspiring Backend Engineer',
-                'Learning Java & Spring',
+                'Backend Engineer in the Making',
               ]}
               loop={0} cursor cursorStyle='|' typeSpeed={90} deleteSpeed={50} delaySpeed={2000} 
             />
@@ -235,7 +214,7 @@ function App() {
 
           {/* Short Bio */}
           <p className="mt-8 text-[var(--color-text)]/80 font-medium max-w-2xl mx-auto text-base md:text-lg">
-            A second-year software development student with hands-on frontend experience, now building backend fundamentals with Java — always curious about how things work under the hood.
+            A second-year software development student who started on the frontend and kept digging downward — into APIs, databases, and the layers most tools hide.
           </p>
 
           {/* Action Buttons */}
@@ -311,10 +290,10 @@ function App() {
               
               <p className="text-[var(--color-text)]/90 font-medium leading-relaxed text-base md:text-lg">
                 Hi! I'm Ezgi, a passionate software development student. Having built a strong foundation in frontend development, I'm now diving into backend engineering with a focus on Java. I enjoy understanding how things work end-to-end — from the interface a user sees to the logic running behind it.
-             </p>
+              </p>
               <p className="text-[var(--color-text)]/90 font-medium leading-relaxed text-base md:text-lg">
-                My goal is to become a well-rounded software engineer capable of building efficient, reliable systems. I'm currently strengthening my foundations in data structures, algorithms, and object-oriented programming, while starting to explore RESTful APIs — growing my skills one project and one challenge at a time.
-             </p>
+                I'd rather understand a layer before I let a tool abstract it away — so I write the SQL myself, handle the routing myself, and read the error before reaching for the thing that would have hidden it. My goal is to become an engineer who builds systems that hold up in production, and right now that means strengthening my foundations in data structures, algorithms and relational databases.
+              </p>
             </motion.div>
 
             {/* Right Column */}
@@ -415,8 +394,8 @@ function App() {
                 What Am I Working On Currently?
               </h3>
               <p className="text-[var(--color-text)]/80 font-medium leading-relaxed text-sm md:text-base">
-                I'm currently building <strong>Tempora</strong>, a full-stack Kanban app, to strengthen my backend fundamentals with <strong>Java</strong> — while continuing to sharpen my <i>object-oriented programming, data structures, algorithms, and problem-solving</i> skills along the way. 
-             </p>
+                Right now I'm going deeper into SQL — writing and reasoning about queries by hand rather than letting a tool generate them. In parallel I'm adding authentication and a task history view to <strong>Tempora</strong>, turning a shared board into a personal one.
+              </p>
             </div>
 
           </div>
@@ -521,7 +500,7 @@ function App() {
                       rel="noopener noreferrer"
                       className="px-4 py-2 rounded-lg bg-[var(--color-accent)] text-[var(--color-surface-hover)] font-bold text-sm hover:scale-105 transition-transform"
                     >
-                      ​🌐 ​Live Demo
+                      🌐 Live Demo
                     </a>
                   )}
 
@@ -541,7 +520,7 @@ function App() {
                       disabled
                       className="px-4 py-2 rounded-lg bg-[var(--color-primary)] text-[var(--color-surface-hover)] text-sm font-bold opacity-60 cursor-not-allowed"
                     >
-                      🚧​ Coming Soon
+                      🚧 Coming Soon
                     </button>
                   )}
                 </div>
@@ -612,9 +591,9 @@ function App() {
             </h3>
             <div className="text-[var(--color-text)]/90 font-medium leading-relaxed text-sm md:text-base text-left space-y-2">
               <p>🎓 Software Development Undergraduate Student</p>
-              <p>☕ Building a strong foundation with Java</p>
-              <p>🧩 Studying OOP, Data Structures & Algorithms</p>
-              <p>🔍 Actively seeking Full-Stack or Software Engineering Internship Opportunities</p> 
+              <p>🔨 Currently building: authentication for Tempora</p>
+              <p>📚 Studying OOP, Data Structures and Algorithms</p>
+              <p>🔍 Open to Full-Stack / Software Engineering Internships</p> 
             </div>
           </div>
 
